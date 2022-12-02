@@ -44,7 +44,7 @@
                 <thead>
                     <tr>
                         <th> NO </th>
-                        <th> NAME </th>
+                        <th> NAMA </th>
                         <th> EMAIL </th>
                         <th> ACTION </th>
                     </tr>
@@ -56,8 +56,8 @@
                         <td>{{ $d->nama }}</td>
                         <td>{{ $d->email}}</td>
                         <td>
-                            <a href="{{ url('masyarakat/'.$d->id) }}" class="btn btn-info">Edit</a>
-                            |
+                            <!-- <a href="{{ url('masyarakat/'.$d->id) }}" class="btn btn-info">Edit</a>
+                            | -->
                             <form action="{{ url('masyarakat/'.$d->id) }}" method="POST" style="display: inline;">
                                 {{ csrf_field() }}
                                 {{ method_field('delete') }}

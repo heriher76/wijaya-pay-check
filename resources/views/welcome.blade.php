@@ -5,8 +5,8 @@
     <div class="container-fluid">
         <div class="card card-primary card-outline text-center">
             <div class="card-header">
-                <h3 class="m-0">Selamat Datang Di Oke Police Dashboard</h3>
-                <h6 class="m-0">Aplikasi Pemantauan Personil Lapangan Kepolisian</h6>
+                <h3 class="m-0">Selamat Datang di Dashboard</h3>
+                <h6 class="m-0">Aplikasi Pemantauan Agen Wijaya Payment</h6>
             </div>
             <div class="card-body">
                 <!-- <title>Laravel Google Maps Example</title>

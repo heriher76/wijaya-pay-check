@@ -40,8 +40,8 @@
                 <thead>
                     <tr>
                         <th> NO </th>
-                        <th> NRP </th>
-                        <th> NAME </th>
+                        <th> NIP </th>
+                        <th> NAMA </th>
                         <th> EMAIL </th>
                         <th> ACTION </th>
                     </tr>

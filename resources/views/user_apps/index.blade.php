@@ -44,7 +44,7 @@
                 <thead>
                     <tr>
                         <th> NO </th>
-                        <th> NAME </th>
+                        <th> NAMA </th>
                         <th> PANGKAT </th>
                         <th> JABATAN </th>
                         <th> EMAIL </th>
@@ -67,7 +67,7 @@
                             <form action="{{ url('user_apps/'.$d->id) }}" method="POST" style="display: inline;">
                                 {{ csrf_field() }}
                                 {{ method_field('delete') }}
-                                <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Apakah Anda Ingin Menghapus Personil Ini ?');">Hapus</button>
+                                <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Apakah Anda Ingin Menghapus Ini ?');">Hapus</button>
                             </form>
                         </td>
                     </tr>

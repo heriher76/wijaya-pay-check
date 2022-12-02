@@ -11,7 +11,7 @@
                     {{csrf_field()}}
                     {{method_field('PUT')}}
                     <div class="form-group{{$errors->has('nrp') ? 'has-error' : ''}} ">
-                        <label for="nrp">NRP</label>
+                        <label for="nrp">NIP</label>
                         <input class="form-control @if ($errors->has('nrp')) is-invalid @endif" type="text" id="nrp" name="nrp"placeholder="00000000" aria-describedby="emailHelp" value="{{$user->nrp}}">
                         @if($errors->has('nrp'))
                         <span class="help-block">{{$errors->first('nrp')}}</span>

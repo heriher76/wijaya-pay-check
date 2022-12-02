@@ -15,6 +15,7 @@
                     <thead>
                         <th> No </th>
                         <th> Nama Personil </th>
+                        <th> Tipe</th>
                         <th> Judul </th>
                         <th> Isi </th>
                         <th> Action </th>
@@ -24,6 +25,13 @@
                         <tr>
                             <td> {{$key+1}} </td>
                             <td> {{$report->user->nama}} </td>
+                            <td> 
+                              @if($report->user->is_masyarakat)
+                                Agen
+                              @else
+                                Petugas
+                              @endif
+                            </td>
                             <td> {{$report->judul}} </td>
                             <td> {{$report->isi}} </td>
                             <td> 

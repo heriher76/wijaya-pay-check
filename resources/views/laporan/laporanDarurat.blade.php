@@ -15,7 +15,7 @@
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -45,10 +45,12 @@
                 <table class="table table-hover">
                     <thead>
                         <th> No </th>
-                        <th> Nama Personil </th>
+                        <th> Nama </th>
+                        <th> Tipe</th>
                         <th> Judul </th>
                         <th> No HP </th>
                         <th> Foto </th>
+                        <th> Lat,Long</th>
                         <th> Perintah </th>
                     </thead>
                     <tbody>
@@ -56,11 +58,19 @@
                         <tr>
                             <td> {{$key+1}} </td>
                             <td> {{$report->user->nama}} </td>
+                            <td> 
+                              @if($report->user->is_masyarakat)
+                                Agen
+                              @else
+                                Petugas
+                              @endif
+                            </td>
                             <td> {{$report->judul}} </td>
                             <td> {{$report->user->no_hp}} </td>
                             <td> 
                                 <a href="{{ url($report->foto ?? '') }}" target="_blank" class="btn btn-primary">Lihat Foto</a>
                             </td>
+                            <td> {{$report->user->lat.', '.$report->user->long}}</td>
                             <td>
                                 <input type="hidden" id="origin">
                                 <input type="hidden" id="destination">

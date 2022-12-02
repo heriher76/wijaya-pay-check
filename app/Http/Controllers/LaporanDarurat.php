@@ -24,7 +24,7 @@ class LaporanDarurat extends Controller
 
         //get laporan
         $reports = EmergencyReport::orderBy('created_at', 'desc')->get();
-        $users = User::all();
+        $users = User::where('is_admin', NULL)->get();
 
         $locations = [];
         foreach($users as $key => $user) {

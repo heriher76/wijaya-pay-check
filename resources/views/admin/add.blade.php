@@ -10,7 +10,7 @@
                 <form style="text-align: left" action="{{ url('/admins') }}" method="post">
                     {{csrf_field()}}
                     <div class="form-group{{$errors->has('nrp') ? 'has-error' : ''}} ">
-                        <label for="nrp">NRP</label>
+                        <label for="nrp">NIP</label>
                         <input class="form-control @if ($errors->has('nrp')) is-invalid @endif" type="text" id="nrp" name="nrp"placeholder="00000000" aria-describedby="emailHelp">
                         @if($errors->has('nrp'))
                         <span class="help-block">{{$errors->first('nrp')}}</span>

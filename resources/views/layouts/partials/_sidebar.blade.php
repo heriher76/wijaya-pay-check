@@ -25,7 +25,7 @@
                 <li class="nav-item">
                     <a href="{{Route('laporan')}}" class="nav-link">
                         <i class="nav-icon fa fa-bell"></i>
-                        <p> Laporan Petugas</p>
+                        <p> Laporan</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -34,18 +34,18 @@
                         <p> Laporan Darurat </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="{{Route('laporan_masyarakat')}}" class="nav-link">
                         <i class="nav-icon fa fa-info"></i>
                         <p> Laporan Agen </p>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <a href="{{Route('news')}}" class="nav-link">
                         <i class="nav-icon fa fa-book"></i>
                         <p> Berita </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="{{Route('user_apps')}}" class="nav-link">
                         <i class="nav-icon fa fa-star"></i>

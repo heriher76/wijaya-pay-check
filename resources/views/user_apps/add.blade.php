@@ -10,7 +10,7 @@
                 <form style="text-align: left" action="{{ url('/user_apps') }}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group{{$errors->has('nrp') ? 'has-error' : ''}} ">
-                        <label for="nrp">NRP</label>
+                        <label for="nrp">NIP</label>
                         <input class="form-control @if ($errors->has('nrp')) is-invalid @endif" type="text" id="nrp" name="nrp" value="{{ old('nrp') }}" placeholder="00000000" aria-describedby="emailHelp">
                         @if($errors->has('nrp'))
                         <span class="help-block">{{$errors->first('nrp')}}</span>
@@ -25,11 +25,11 @@
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Pangkat</label>
-                        <input type="text" name="pangkat" class="form-control" id="formGroupExampleInput" placeholder="Pangkat Personil">
+                        <input type="text" name="pangkat" class="form-control" id="formGroupExampleInput" placeholder="Pangkat">
                     </div>
                     <div class=" form-group">
                         <label for="formGroupExampleInput">Jabatan</label>
-                        <input type="text" name="jabatan" class="form-control" id="formGroupExampleInput" placeholder="Jabatan peronil di kepolisian">
+                        <input type="text" name="jabatan" class="form-control" id="formGroupExampleInput" placeholder="Jabatan">
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Nomor Handphone</label>
