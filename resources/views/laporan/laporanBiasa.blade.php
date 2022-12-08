@@ -24,19 +24,21 @@
                         @foreach($reports as $key => $report)
                         <tr>
                             <td> {{$key+1}} </td>
-                            <td> {{$report->user->nama}} </td>
+                            <td> {{$report->user->nama ?? ''}} </td>
                             <td> 
-                              @if($report->user->is_masyarakat)
-                                Agen
-                              @else
-                                Petugas
+                              @if(!empty($report->user))
+                                @if($report->user->is_masyarakat)
+                                  Agen
+                                @else
+                                  Petugas
+                                @endif
                               @endif
                             </td>
                             <td> {{$report->judul}} </td>
                             <td> {{$report->isi}} </td>
                             <td> 
                                 <a href="{{ url($report->foto ?? '') }}" target="_blank" class="btn btn-primary">Lihat Foto</a>
-                                <a href="#" class="btn btn-success" onclick="initMap(parseFloat({{$report->user->lat}}), parseFloat({{$report->user->long}}));">Lokasi</a>
+                                <a href="#" class="btn btn-success" onclick="initMap(parseFloat({{$report->user->lat ?? 0}}), parseFloat({{$report->user->long ?? 0}}));">Lokasi</a>
                             </td>
                         </tr>
                         @endforeach
