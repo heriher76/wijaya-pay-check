@@ -19,7 +19,7 @@ class BestPositionPersonelControlle extends Controller
         $startLong = $latLong[1];
 
         //ambil semua node
-        $initialNode = User::query()->select('id', 'lat', 'long',)->get();
+        $initialNode = User::query()->where('is_admin', '!=', 1)->select('id', 'lat', 'long',)->get();
 
         //cek start apakah ada di node apa tidak ,jika iya maka dihapus dari openlist
         $isAvailible = [];
