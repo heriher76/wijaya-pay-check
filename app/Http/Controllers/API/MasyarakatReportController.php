@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Helper\ResponseHelper;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class MasyarakatReportController extends Controller
 {
@@ -27,9 +28,12 @@ class MasyarakatReportController extends Controller
         $file_name = $image_path . Carbon::now()->timestamp . '.' . $file->getClientOriginalExtension();
         $file->move(public_path($image_path), $file_name);
 
-        Auth::user()->reportMasyarakat()->create([
+        DB::table('users')->where('id', Auth::user()->id)->update([
             'lat' => $request->lat,
-            'lang' => $request->lang,
+            'long' => $request->long,
+        ]);
+
+        Auth::user()->reportMasyarakat()->create([
             'judul' => $request->judul,
             'foto' => $file_name
         ]);

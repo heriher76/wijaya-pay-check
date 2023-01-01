@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class Report extends Controller
 {
@@ -35,9 +36,12 @@ class Report extends Controller
         $file_name = $image_path . Carbon::now()->timestamp . '.' . $file->getClientOriginalExtension();
         $file->move(public_path($image_path), $file_name);
 
-        Auth::user()->report()->create([
+        DB::table('users')->where('id', Auth::user()->id)->update([
             'lat' => $request->lat,
-            'lang' => $request->lang,
+            'long' => $request->long,
+        ]);
+
+        Auth::user()->report()->create([
             'judul' => $request->judul,
             'isi' => $request->isi,
             'foto' => $file_name
