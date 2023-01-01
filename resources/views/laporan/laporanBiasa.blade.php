@@ -4,7 +4,7 @@
 <div class="content my-4">
     <div class="container-fluid">
         <div class="card card-primary card-outline text-center">
-            <h4 class="m-0" style="padding:10px;text-align:center"> Data Laporan  </h4>
+            <h4 class="m-0" style="padding:10px;text-align:center"> Data Laporan Agen  </h4>
             <div class="card-fluid">
                 <div id="map"></div>
             </div>
@@ -14,7 +14,7 @@
                 <table class="table table-hover">
                     <thead>
                         <th> No </th>
-                        <th> Nama Personil </th>
+                        <th> Nama </th>
                         <th> Tipe</th>
                         <th> Judul </th>
                         <th> Isi </th>
