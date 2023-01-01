@@ -30,7 +30,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{Route('laporan_darurat')}}" class="nav-link">
-                        <i class="nav-icon fa fa-warning"></i>
+                        <i class="nav-icon fa fa-star"></i>
                         <p> Laporan Petugas </p>
                     </a>
                 </li>
@@ -48,7 +48,7 @@
                 </li> -->
                 <li class="nav-item">
                     <a href="{{Route('user_apps')}}" class="nav-link">
-                        <i class="nav-icon fa fa-star"></i>
+                        <i class="nav-icon fa fa-users"></i>
                         <p> Petugas Lapangan </p>
                     </a>
                 </li>

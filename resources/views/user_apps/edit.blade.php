@@ -25,12 +25,16 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="formGroupExampleInput">Pangkat</label>
-                        <input type="text" value="{{ $user->pangkat }}" name="pangkat" class="form-control" id="formGroupExampleInput" placeholder="Pangkat">
+                        <label for="formGroupExampleInput">Status</label>
+                        <select name="pangkat" id="pangkat" class="form-control">
+                            <option>--Pilih Status--</option>
+                            <option value="Kepala Wilayah" @if($user->pangkat == 'Kepala Wilayah') selected @endif>Kepala Wilayah</option>
+                            <option value="Anggota Wilayah" @if($user->pangkat == 'Anggota Wilayah') selected @endif>Anggota Wilayah</option>
+                        </select>
                     </div>
                     <div class=" form-group">
-                        <label for="formGroupExampleInput">Jabatan</label>
-                        <input type="text" value="{{ $user->jabatan }}" name="jabatan" class="form-control" id="formGroupExampleInput" placeholder="Jabatan">
+                        {{-- <label for="formGroupExampleInput">Jabatan</label> --}}
+                        <input type="hidden" value="{{ $user->jabatan }}" name="jabatan" class="form-control" id="formGroupExampleInput" placeholder="Jabatan" >
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Nomor Handphone</label>

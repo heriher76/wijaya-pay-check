@@ -34,7 +34,6 @@ class UserAppsController extends Controller
             'nrp' => 'required',
             'nama' => 'required',
             'pangkat' => 'required',
-            'jabatan' => 'required',
             'email' => 'required',
             'password' => 'min:6',
             'no_hp' => 'required',
@@ -51,7 +50,7 @@ class UserAppsController extends Controller
             'nrp' => $input['nrp'],
             'nama' => $input['nama'],
             'pangkat' => $input['pangkat'],
-            'jabatan' => $input['jabatan'],
+            'jabatan' => 'Petugas',
             'email' => $input['email'],
             'password' => \Hash::make($input['password']),
             'image' => $namaImage,
@@ -65,6 +64,7 @@ class UserAppsController extends Controller
         (isset($input['image'])) ? $input['image']->move(public_path('img/personil'), $namaImage) : null ;
 
         //go to user_apps View
+        session()->flash("success","Success");
         return redirect('/user_apps')->with('status', 'Personil Berhasil Ditambahkan');
     }
 
@@ -117,6 +117,7 @@ class UserAppsController extends Controller
                 'password' => \Hash::make($input['new_password'])
             ]);
         }
+        session()->flash("success","Success");
         return redirect('/user_apps')->with('status', 'Personil Berhasil Diubah');
     }
 

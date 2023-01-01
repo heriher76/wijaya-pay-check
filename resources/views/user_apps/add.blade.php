@@ -24,12 +24,16 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="formGroupExampleInput">Pangkat</label>
-                        <input type="text" name="pangkat" class="form-control" id="formGroupExampleInput" placeholder="Pangkat">
+                        <label for="formGroupExampleInput">Status</label>
+                        <select name="pangkat" id="pangkat" class="form-control">
+                            <option>--Pilih Status--</option>
+                            <option value="Kepala Wilayah">Kepala Wilayah</option>
+                            <option value="Anggota Wilayah">Anggota Wilayah</option>
+                        </select>
                     </div>
                     <div class=" form-group">
-                        <label for="formGroupExampleInput">Jabatan</label>
-                        <input type="text" name="jabatan" class="form-control" id="formGroupExampleInput" placeholder="Jabatan">
+                        {{-- <label for="formGroupExampleInput">Jabatan</label> --}}
+                        <input type="hidden" name="jabatan" class="form-control" id="formGroupExampleInput" placeholder="Jabatan">
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Nomor Handphone</label>
@@ -62,4 +66,5 @@
         </div>
     </div><!-- /.container-fluid -->
 </div>
+
 @endsection
