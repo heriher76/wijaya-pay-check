@@ -19,8 +19,8 @@ class BestPositionPersonelControlle extends Controller
         $startLong = $latLong[1];
 
         //ambil semua node
-        $initialNode = User::query()->select('id', 'lat', 'long',)->get();
-
+        $initialNode = User::query()->where('is_masyarakat', 1)->select('id', 'lat', 'long')->get();
+        
         //cek start apakah ada di node apa tidak ,jika iya maka dihapus dari openlist
         $isAvailible = [];
         foreach ($initialNode as $index => $availibleNode) {
@@ -77,7 +77,7 @@ class BestPositionPersonelControlle extends Controller
             // dd($startIninitialLat);
             array_push($temp_bestNode, $bestNode[0]);
 
-            $personil = User::where('lat', $bestNode[1]->lat)->where('long', $bestNode[1]->long)->first();
+            $personil = User::where('lat', $bestNode[0]->lat)->where('long', $bestNode[0]->long)->first();
             
             return response()->json(['map' => $closeList, 'personil' => $personil]);
         }

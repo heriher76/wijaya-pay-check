@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Report;
+use DB;
 
 class LaporanController extends Controller
 {
@@ -22,7 +23,7 @@ class LaporanController extends Controller
         $zoom = '14';
 
         //get laporan
-        $reports = Report::orderBy('created_at', 'desc')->get();
+        $reports = DB::table('report')->join('users', 'users.id', '=', 'report.user_id')->where('users.is_masyarakat', '=', 1)->select('report.*', 'users.nama', 'users.lat', 'users.long')->orderBy('report.created_at', 'desc')->get();
 
         return view('laporan.laporanBiasa', compact('reports', 'center', 'zoom'));
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\EmergencyReport;
 use App\User;
+use DB;
 
 class LaporanDarurat extends Controller
 {
@@ -23,15 +24,21 @@ class LaporanDarurat extends Controller
         $zoom = '14';
 
         //get laporan
-        $reports = EmergencyReport::orderBy('created_at', 'desc')->get();
-        $users = User::where('is_admin', NULL)->get();
+        $reports = DB::table('emergency_report')->join('users', 'users.id', '=', 'emergency_report.user_id')->where('users.is_personil_active', '=', 1)->select('emergency_report.*', 'users.nama', 'users.lat', 'users.long', 'users.no_hp')->orderBy('emergency_report.created_at', 'desc')->get();
+        $list_agen = User::where('is_masyarakat', 1)->get();
+        $list_petugas = User::where('is_personil_active', 1)->get();
 
-        $locations = [];
-        foreach($users as $key => $user) {
-            array_push($locations, [$user->nama, $user->lat, $user->long, $key+1]);
+        $agen_locations = [];
+        foreach($list_agen as $key => $user) {
+            array_push($agen_locations, [$user->nama, $user->lat, $user->long, $key+1]);
         }
 
-        return view('laporan.laporanDarurat', compact('reports', 'center', 'zoom', 'locations'));
+        $petugas_locations = [];
+        foreach($list_petugas as $key => $user) {
+            array_push($petugas_locations, [$user->nama, $user->lat, $user->long, $key+1]);
+        }
+
+        return view('laporan.laporanDarurat', compact('reports', 'center', 'zoom', 'agen_locations', 'petugas_locations'));
     }
 
     /**
