@@ -129,7 +129,7 @@
         var agen_locations = @json($agen_locations);
 
         var petugas_locations = @json($petugas_locations);
-
+        
         var center = new google.maps.LatLng({{$center[0]}}, {{$center[1]}});
 
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -150,7 +150,7 @@
 
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-              infowindow.setContent(agen_locations[i][0]);
+              infowindow.setContent(agen_locations[i][0] + ' (Agen)');
               infowindow.open(map, marker);
             }
           })(marker, i));
@@ -165,7 +165,7 @@
 
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-              infowindow.setContent(petugas_locations[i][0]);
+              infowindow.setContent(petugas_locations[i][0] + ' (Petugas)');
               infowindow.open(map, marker);
             }
           })(marker, i));
