@@ -27,7 +27,7 @@
                             <thead>
                                 <th> No </th>
                                 <th> Nama </th>
-                                <th> Pangkat </th>
+                                <th> Status </th>
                                 <th> Perintah </th>
                             </thead>
                             <tbody id="personil">

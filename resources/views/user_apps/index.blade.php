@@ -35,7 +35,7 @@
                             </form>
                         </div>
                         <div class="col-sm-4 col-xs-6 d-flex flex-row-reverse d-flex align-items-center" onclick="##">
-                            <a class="btn btn-primary float-right mt-2" href="{{ url('/user_apps/create') }}" role="button"> Tambah Personil</a>
+                            <a class="btn btn-primary float-right mt-2" href="{{ url('/user_apps/create') }}" role="button"> Tambah Petugas</a>
                             <i class="fa fa-user-plus" style="padding-right: 10px"></i>
                         </div>
                     </div>
