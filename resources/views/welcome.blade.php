@@ -6,7 +6,7 @@
         <div class="card card-primary card-outline text-center">
             <div class="card-header">
                 <h3 class="m-0">Selamat Datang di Dashboard</h3>
-                <h6 class="m-0">Aplikasi Pemantauan Agen Wijaya Payment</h6>
+                <h6 class="m-0">Aplikasi Pengawasan Agen Wijaya Payment</h6>
             </div>
             <div class="card-body">
                 <!-- <title>Laravel Google Maps Example</title>

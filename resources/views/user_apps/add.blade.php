@@ -44,13 +44,17 @@
                         <input type="file" name="image" class="form-control" id="exampleInputPassword1" placeholder="Foto">
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputPassword1">Pilih Lokasi</label>
+                        <div id="map"></div>
+                    </div>
+                    {{-- <div class="form-group">
                         <label for="formGroupExampleInput">Latitude</label>
-                        <input type="text" name="lat" class="form-control" id="formGroupExampleInput" placeholder="Koordinat latitude">
-                    </div>
-                    <div class="form-group">
+                    </div> --}}
+                    <input type="hidden" name="lat" class="form-control" id="latInput" value="-6.914270" placeholder="Koordinat latitude">
+                    {{-- <div class="form-group">
                         <label for="formGroupExampleInput">Longitude</label>
-                        <input type="text" name="long" class="form-control" id="formGroupExampleInput" placeholder="Koordinat Longitude">
-                    </div>
+                    </div> --}}
+                    <input type="hidden" name="long" class="form-control" id="lngInput" value="107.620390" placeholder="Koordinat Longitude">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
                         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Alamat Email">
@@ -66,5 +70,49 @@
         </div>
     </div><!-- /.container-fluid -->
 </div>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPx02inVenk0bE7hU-cjtWlZpIrF8tDsQ&callback=initMap&v=weekly"
+    defer
+></script>
+<script>
+function initMap() {
+  const myLatlng = { lat: -6.921685, lng: 107.607142 };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 14,
+    center: myLatlng,
+  });
+  // Create the initial InfoWindow.
+  let infoWindow = new google.maps.InfoWindow({
+    content: "Klik map untuk mendapatkan Lat/Lng!",
+    position: myLatlng,
+  });
 
+  infoWindow.open(map);
+  // Configure the click listener.
+  map.addListener("click", (mapsMouseEvent) => {
+    // Close the current InfoWindow.
+    infoWindow.close();
+    // Create a new InfoWindow.
+    infoWindow = new google.maps.InfoWindow({
+      position: mapsMouseEvent.latLng,
+    });
+    infoWindow.setContent(
+      JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+    );
+    infoWindow.open(map);
+    document.getElementById('latInput').value = mapsMouseEvent.latLng.lat();
+    document.getElementById('lngInput').value = mapsMouseEvent.latLng.lng();
+  });
+}
+
+window.initMap = initMap;
+</script>
+<style>
+    #map {
+        width: 100%;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+    }
+</style>
 @endsection
